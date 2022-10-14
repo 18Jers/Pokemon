@@ -46,7 +46,6 @@ public class HomeController {
 	@PostMapping("/form")
 	public String CrearFormulario(Model model) {
 		
-		//creandoi el pokemon
 		//IpService.CrearPokemon(Pokemon pokemon)
 		
 		model.addAttribute("titlePage", titlePage);
