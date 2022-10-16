@@ -7,4 +7,5 @@ import com.id.spring.app.model.Pokemon;
 public interface IPokemonService {
 	
 	public List<Pokemon> ObtenerListaPokemon();
+	public String CrearPokemon(Pokemon pk);
 }

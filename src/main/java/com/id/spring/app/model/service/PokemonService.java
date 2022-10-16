@@ -42,6 +42,13 @@ public class PokemonService implements IPokemonService{
 		return listaPokemones;
 		//retunr
 	}
-
+    
+	@Override
+	public String CrearPokemon(Pokemon pk) {
+		
+		//Sirve pra envio de base de datos
+		
+		return "Pokemon atrapado";
+	}
 
 }

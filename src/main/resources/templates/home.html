@@ -44,12 +44,12 @@
 				<p th:text="${pokemon.tipo}"></p>
 				<p th:text="${pokemon.habilidad}"></p>
 				<p th:text="${pokemon.nivelPoder}"></p>
-				<p>Otros</p>
+				<img th:src="${pokemon.urlimagen}"/>
 			</span>
 
 		</div>
 
-		<button class="btn btn-sm btn-success">Demo Boton</button>
+		<span th:text="${respuesta}"></span>
 	</div>
 
 
