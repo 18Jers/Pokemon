@@ -44,18 +44,25 @@
 					<label for="idNombre">Nombre</label> <input type="text" name="nombre"
 						class="form-control" id="idNombre">
 				</div>
+				<span th:if = "${Errores!= null && Errores.containsKey('nombre')}" th:text = "${Errores.nombre}"></span>
+				
 				<div class="form-group">
 					<label for="idTipo">Tipo</label> <input type="text" name="tipo"
 						class="form-control" id="idTipo">
 				</div>
+				<span th:if = "${Errores!= null && Errores.containsKey('tipo')}" th:text = "${Errores.nombre}"></span>
+				
 				<div class="form-group">
 					<label for="idHabilidad">Habilidad</label> <input type="text" name="habilidad"
 						class="form-control" id="idHabilidad">
 				</div>
+				<span th:if = "${Errores!= null && Errores.containsKey('habilidad')}" th:text = "${Errores.nombre}"></span>
+				
 				<div class="form-group">
 					<label for="idNivelPoder">Nivel Poder</label> <input type="text" name="nivelPoder"
 						class="form-control" id="idNivelPoder">
 				</div>
+				<span th:if = "${Errores!= null && Errores.containsKey('nivelPoder')}" th:text = "${Errores.nombre}"></span>
 				<div class="form-group">
 					<label for="idUrlImagen">Enlace Imagen</label> <input type="text" name="urlimagen"
 						class="form-control" id="idUrlImagen">

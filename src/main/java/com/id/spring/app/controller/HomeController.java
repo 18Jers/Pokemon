@@ -1,16 +1,17 @@
 package com.id.spring.app.controller;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.thymeleaf.util.StringUtils;
 
 import com.id.spring.app.model.Pokemon;
 import com.id.spring.app.model.service.IPokemonService;
@@ -49,10 +50,27 @@ public class HomeController {
 	}
 	
 	@PostMapping("/nuevoform")
-	public String CrearFormulario(Model model, Pokemon pk) {
+	public String CrearFormulario(@Validated Pokemon pk,BindingResult result ,Model model) {
 		
+		if(result.hasErrors()) {
+			Map<String, String> MapErrores = new HashMap<>();
+			result.getFieldErrors().forEach(error -> {
+				String Clavecampo = error.getField();
+				String ValorError = "El campo ".concat(Clavecampo).concat(" ").concat(error.getDefaultMessage());
+				
+				MapErrores.put(Clavecampo, ValorError);
+			});
+		    
+			model.addAttribute("Errores", MapErrores);
+			
+			return "formulario";
+			
+		}
+		
+			
 		List<Pokemon>pokemonX= new ArrayList<>();
 		pokemonX.add(pk);
+		
 		String respuesta = IpService.CrearPokemon(pk);
 		
 		//IpService.CrearPokemon(Pokemon pokemon)
@@ -65,5 +83,5 @@ public class HomeController {
 		
 		return "home";
 	}
-
+	
 }
