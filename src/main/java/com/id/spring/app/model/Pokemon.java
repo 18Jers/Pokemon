@@ -1,24 +1,26 @@
 package com.id.spring.app.model;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+
 
 public class Pokemon {
-	@NotEmpty (message = "no dejar en blanco")
-	@Size(min = 3, max = 150)
+	@NotEmpty (message = "rellenar nombre")
 	private String nombre;
 	
-	@NotEmpty (message = "no dejar en blanco")
+	
 	private String categoria;
 	
-	@NotEmpty (message = "no dejar en blanco")
+	@NotEmpty (message = "rellenar tipo")
 	private String tipo;
 	
-	@NotEmpty (message = "no dejar en blanco")
+	@NotEmpty (message = "rellenar habilidad")
 	private String habilidad;
 	
-	@NotEmpty (message = "no dejar en blanco")
+
+	@NotEmpty (message = "rellenar nivel de poder")
 	private String nivelPoder;
+ 
+
 	private String urlimagen;
 	
 	

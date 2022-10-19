@@ -38,18 +38,19 @@
 	<div class="container">
 		<h1 th:text="${titulo}"></h1>
 		<br>
-		<div th:each="pokemon : ${ListaPokemon}">
-			<span>
+		<div>
+			
 				<p th:text="${pokemon.nombre}"></p>
 				<p th:text="${pokemon.tipo}"></p>
 				<p th:text="${pokemon.habilidad}"></p>
 				<p th:text="${pokemon.nivelPoder}"></p>
 				<img th:src="${pokemon.urlimagen}"/>
-			</span>
-
+			
 		</div>
 
 		<span th:text="${respuesta}"></span>
+		<!-- <span th:text="${errores}"></span> -->
+		
 	</div>
 
 

@@ -1,6 +1,5 @@
 package com.id.spring.app.controller;
 
-import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,10 +29,12 @@ public class HomeController {
 	@GetMapping("/home")
 	public String Home(Model model) {
 		
+		Pokemon pk = new Pokemon();
 		model.addAttribute("titlePage", titlePage);
 		model.addAttribute("titulo", "Iniciando con Spring Boot");
 		model.addAttribute("ListaPokemon", IpService.ObtenerListaPokemon());
-				
+		model.addAttribute("pokemon", pk);		
+		
 		return "home";
 	}
 	
@@ -43,33 +44,21 @@ public class HomeController {
 		//creandoi el pokemon
 		//IpService.CrearPokemon(Pokemon pokemon)
 		
+		Pokemon pk = new Pokemon();
 		model.addAttribute("titlePage", titlePage);
 		model.addAttribute("titulo", "Formulario con Spring Boot");
 				
+		model.addAttribute("pokemon", pk);
 		return "formulario";
 	}
 	
-	@PostMapping("/nuevoform")
+	@PostMapping("nuevoform")//o /nuevoform
 	public String CrearFormulario(@Validated Pokemon pk,BindingResult result ,Model model) {
 		
 		if(result.hasErrors()) {
-			Map<String, String> MapErrores = new HashMap<>();
-			result.getFieldErrors().forEach(error -> {
-				String Clavecampo = error.getField();
-				String ValorError = "El campo ".concat(Clavecampo).concat(" ").concat(error.getDefaultMessage());
-				
-				MapErrores.put(Clavecampo, ValorError);
-			});
-		    
-			model.addAttribute("Errores", MapErrores);
-			
-			return "formulario";
-			
+			return "formulario";		
 		}
 		
-			
-		List<Pokemon>pokemonX= new ArrayList<>();
-		pokemonX.add(pk);
 		
 		String respuesta = IpService.CrearPokemon(pk);
 		
@@ -77,9 +66,11 @@ public class HomeController {
 		
 		model.addAttribute("titlePage", titlePage);
 		model.addAttribute("titulo", "Formulario con Spring Boot");
-		model.addAttribute("ListaPokemon",pokemonX);
-				
+		model.addAttribute("pokemon",pk);				
 		model.addAttribute("respuesta",respuesta);
+		
+		//para mostrar los errores en home.html
+		//model.addAttribute("errores",result.hasErrors());
 		
 		return "home";
 	}
