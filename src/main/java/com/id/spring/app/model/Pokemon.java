@@ -1,29 +1,40 @@
 package com.id.spring.app.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
-
+@Entity
+@Table(name = "pokemon")
 public class Pokemon {
-	@NotEmpty (message = "rellenar nombre")
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int idPokemon;
+	
+	@NotEmpty (message = "Completar el nombre del pokemon")
 	private String nombre;
-	
-	
 	private String categoria;
 	
-	@NotEmpty (message = "rellenar tipo")
+	@Size(min = 2, max = 50, message = "Mínimo 5 y máximo 50 caracteres")
+	@NotEmpty(message = "Completar el tipo del pokemon")
 	private String tipo;
 	
-	@NotEmpty (message = "rellenar habilidad")
+	@NotEmpty (message = "Completar la habilidad del pokemon")
 	private String habilidad;
-	
-
-	@NotEmpty (message = "rellenar nivel de poder")
 	private String nivelPoder;
- 
-
 	private String urlimagen;
 	
-	
+	public int getIdPokemon() {
+		return idPokemon;
+	}
+	public void setIdPokemon(int idPokemon) {
+		this.idPokemon = idPokemon;
+	}
 	public String getCategoria() {
 		return categoria;
 	}

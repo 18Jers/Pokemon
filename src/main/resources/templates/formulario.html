@@ -24,6 +24,110 @@
 					href="/app/home">Inicio <span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Formulario</a></li>
+				<li class="nav-item"><a class="nav-link" href="/app/listar">Pokemones</a></li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search"
+					aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0">Búsqueda</button>
+			</form>
+		</div>
+	</nav>
+
+	<h1 th:text="${titulo}"></h1>
+	<hr>
+	<div class="container">
+		<div  class="card p-4" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+		
+		
+			<form th:action="@{/app/Nuevoform}" th:object="${pokemon}"   method="post">
+				<div class="form-group">
+					<label for="idNombre">Nombre</label> 
+					<input type="text" name="nombre" th:field="*{nombre}"
+						class="form-control" id="idNombre">
+				</div>				
+				<span th:if = "${#fields.hasErrors('nombre')}" th:errors = "*{nombre}" ></span>
+				
+				<div class="form-group">
+					<label for="idTipo">Tipo</label> 
+					<input type="text" name="tipo" th:field="*{tipo}"
+						class="form-control" id="idTipo">
+				</div>
+				<span th:if = "${#fields.hasErrors('tipo')}" th:errors = "*{tipo}" ></span>
+				
+				
+				<div class="form-group">
+					<label for="idHabilidad">Habilidad</label> 
+					<input type="text" name="habilidad" th:field="*{habilidad}"
+						class="form-control" id="idHabilidad">
+				</div>
+				<span th:if = "${#fields.hasErrors('habilidad')}" th:errors = "*{habilidad}" ></span>
+				
+				<div class="form-group">
+					<label for="idNivelPoder">Nivel Poder</label> 
+					<input type="text" name="nivelPoder" th:field="*{nivelPoder}"
+						class="form-control" id="idNivelPoder">
+				</div>
+				<!-- <span th:if = "${#fields.hasErrors('nivelPoder')}" th:errors = "*{nivelPoder}" ></span>-->
+				
+				
+				<div class="form-group">
+					<label for="idUriImagen">Enlace Imagen</label> 
+					<input type="text" name="uriImagen"  th:field="*{uriImagen}"
+						class="form-control" id="idUriImagen">
+				</div>
+				<!-- <span th:if = "${#fields.hasErrors('uriImagen')}" th:errors = "*{uriImagen}" ></span> -->
+
+				<button type="submit" class="btn btn-primary"> Guardar</button>
+			</form>
+		</div>
+		
+
+
+	</div>
+
+
+
+
+
+
+
+	<script src="/resources/js/jquery.slim.min.js"></script>
+	<script src="/resources/js/popper.min.js"></script>
+	<script src="/resources/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title th:text="${titlePage}"></title>
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="/app/home"> <img
+			src="/resources/Icons/bootstrap-solid.svg" width="30" height="30"
+			class="d-inline-block align-top" alt=""> Spring Boot
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link"
+					href="/app/home">Inicio <span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Formulario</a></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
 				<input class="form-control mr-sm-2" type="search"
@@ -103,4 +207,4 @@
 	<script src="/resources/js/popper.min.js"></script>
 	<script src="/resources/js/bootstrap.min.js"></script>
 </body>
-</html>
+</html> -->
