@@ -15,26 +15,29 @@ public class Pokemon {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idPokemon;
-	
+		
 	@NotEmpty (message = "Completar el nombre del pokemon")
-	private String nombre;
+	private String nombre;	
 	private String categoria;
 	
 	@Size(min = 2, max = 50, message = "Mínimo 5 y máximo 50 caracteres")
-	@NotEmpty(message = "Completar el tipo del pokemon")
+	@NotEmpty(message = "Completar el tipo del pokemon")	
 	private String tipo;
 	
-	@NotEmpty (message = "Completar la habilidad del pokemon")
+	@NotEmpty(message = "Completar la habilidad del pokemon")
 	private String habilidad;
 	private String nivelPoder;
-	private String urlimagen;
+	private String uriImagen;
 	
+			
 	public int getIdPokemon() {
 		return idPokemon;
 	}
+
 	public void setIdPokemon(int idPokemon) {
 		this.idPokemon = idPokemon;
 	}
+
 	public String getCategoria() {
 		return categoria;
 	}
@@ -43,12 +46,12 @@ public class Pokemon {
 		this.categoria = categoria;
 	}
 
-	public String getUrlimagen() {
-		return urlimagen;
+	public String getUriImagen() {
+		return uriImagen;
 	}
 
-	public void setUrlimagen(String urlimagen) {
-		this.urlimagen = urlimagen;
+	public void setUriImagen(String uriImagen) {
+		this.uriImagen = uriImagen;
 	}
 
 	public String getNombre() {
@@ -76,4 +79,5 @@ public class Pokemon {
 	public void setNivelPoder(String nivelPoder) {
 		this.nivelPoder = nivelPoder;
 	}
+
 }
